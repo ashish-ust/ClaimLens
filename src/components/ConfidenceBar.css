@@ -1,0 +1,34 @@
+.confidence {
+  margin: 0.6rem 0 0.9rem;
+}
+
+.confidence-head {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.88rem;
+  color: var(--color-muted);
+  margin-bottom: 0.3rem;
+}
+
+.confidence-value {
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.confidence-track {
+  height: 8px;
+  border-radius: 999px;
+  background: #e3ecec;
+  overflow: hidden;
+}
+
+.confidence-fill {
+  height: 100%;
+  border-radius: inherit;
+  background: var(--color-primary);
+  transition: width 0.4s ease;
+}
+
+.confidence.is-muted .confidence-fill {
+  background: var(--unavailable);
+}
