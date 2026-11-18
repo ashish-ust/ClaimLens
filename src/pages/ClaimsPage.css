@@ -1,0 +1,79 @@
+.claims-header {
+  margin-bottom: 1.5rem;
+}
+
+.claims-header h1 {
+  margin-bottom: 0.3rem;
+}
+
+.claims-header p {
+  margin: 0;
+}
+
+.claims-grid {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.claim-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  height: 100%;
+  min-width: 0;
+}
+
+.claim-card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.claim-card-id {
+  min-width: 0;
+}
+
+.claim-id {
+  font-size: 1.02rem;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.claim-date {
+  font-size: 0.88rem;
+}
+
+.claim-excerpt {
+  margin: 0;
+  color: var(--color-text);
+  flex: 1;
+  overflow-wrap: anywhere;
+}
+
+.thumb-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.thumb {
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  background: #e9f0f0;
+}
+
+.empty-state .empty-icon {
+  width: 3rem;
+  height: 3rem;
+  color: var(--color-primary);
+  margin: 0 auto 0.75rem;
+}
+
+.empty-state .button {
+  margin-top: 0.75rem;
+}

@@ -1,0 +1,69 @@
+.progress-view {
+  padding: 1rem 0.5rem;
+  text-align: center;
+}
+
+.progress-view h2 {
+  margin-top: 0;
+}
+
+.progress-steps {
+  list-style: none;
+  margin: 1.75rem auto 0;
+  padding: 0;
+  max-width: 460px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.progress-step {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-muted);
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.progress-marker {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: 2px solid var(--color-border);
+}
+
+.progress-step.is-complete {
+  color: var(--ok);
+  border-color: #b9dfca;
+  background: var(--ok-bg);
+}
+
+.progress-step.is-complete .progress-marker {
+  background: var(--ok);
+  border-color: var(--ok);
+  color: #fff;
+}
+
+.progress-step.is-current {
+  color: var(--color-primary-strong);
+  border-color: var(--color-primary);
+  font-weight: 600;
+}
+
+.progress-step.is-current .progress-marker {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.progress-label {
+  text-align: left;
+}

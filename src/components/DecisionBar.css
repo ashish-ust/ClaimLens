@@ -1,0 +1,99 @@
+.decision-dock {
+  position: sticky;
+  bottom: 0;
+  z-index: 30;
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  box-shadow: var(--shadow-float);
+  padding: 0.85rem 0;
+}
+
+.decision-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 0.75rem 1rem;
+}
+
+.decision-note {
+  flex: 1 1 280px;
+  min-width: 0;
+}
+
+.decision-note .field-label {
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+}
+
+.decision-note .text-input {
+  padding: 0.55rem 0.75rem;
+}
+
+.decision-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.decision-error {
+  flex-basis: 100%;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--high);
+  font-weight: 600;
+  font-size: 0.92rem;
+}
+
+.decision-result-row {
+  align-items: center;
+  justify-content: space-between;
+}
+
+.decision-result {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--sev);
+  min-width: 0;
+}
+
+.decision-result-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--sev-bg);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.decision-result-icon .icon {
+  width: 1.4rem;
+  height: 1.4rem;
+}
+
+.decision-result-title {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.decision-result-message {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 600px) {
+  .decision-actions,
+  .decision-actions .button {
+    width: 100%;
+  }
+
+  .decision-result-row .button {
+    width: 100%;
+  }
+}
