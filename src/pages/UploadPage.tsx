@@ -24,10 +24,10 @@ export default function UploadPage() {
   const [error, setError] = useState<ErrorInfo | null>(null);
 
   const narrativeError = narrativeLengthError(narrative);
-  const canSubmit = photo1 !== null && photo2 !== null && isNarrativeValid(narrative);
+  const canSubmit = photo1 !== null && isNarrativeValid(narrative);
 
   async function submit() {
-    if (!photo1 || !photo2 || !isNarrativeValid(narrative)) return;
+    if (!photo1 || !isNarrativeValid(narrative)) return;
     setIsSubmitting(true);
     setIsDone(false);
     setError(null);
@@ -55,7 +55,7 @@ export default function UploadPage() {
         <p className="eyebrow">New claim</p>
         <h1>See through every claim.</h1>
         <p className="lead muted">
-          Upload two photos and describe what happened. ClaimLens checks for duplicate images, signs of AI generation,
+          Upload one photo, or two if you have them, and describe what happened. ClaimLens checks for duplicate images, signs of AI generation,
           and whether the narrative matches the photos. A reviewer makes the final call.
         </p>
       </section>
@@ -67,7 +67,7 @@ export default function UploadPage() {
           <form onSubmit={handleSubmit} noValidate className="upload-form">
             <div className="photo-grid">
               <ImageDropzone label="Photo 1" file={photo1} onFileChange={setPhoto1} />
-              <ImageDropzone label="Photo 2" file={photo2} onFileChange={setPhoto2} />
+              <ImageDropzone label="Photo 2" optional file={photo2} onFileChange={setPhoto2} />
             </div>
 
             <div className="narrative-field">
@@ -114,7 +114,7 @@ export default function UploadPage() {
                 <Icon name="arrow-right" />
               </button>
               {!canSubmit && (
-                <p className="field-hint">Add both photos and a description of at least {NARRATIVE_MIN_LENGTH} characters to continue.</p>
+                <p className="field-hint">Add Photo 1 and a description of at least {NARRATIVE_MIN_LENGTH} characters to continue.</p>
               )}
             </div>
           </form>

@@ -9,12 +9,14 @@ interface Props {
   label: string;
   file: File | null;
   onFileChange: (file: File | null) => void;
+  /** Shows an "(optional)" note next to the label. Slots are required unless this is set. */
+  optional?: boolean;
 }
 
 const ACCEPT = ACCEPTED_IMAGE_TYPES.join(',');
 
 /** Drag-and-drop or click-to-browse photo slot with preview, validation and remove. */
-export default function ImageDropzone({ label, file, onFileChange }: Props) {
+export default function ImageDropzone({ label, file, onFileChange, optional = false }: Props) {
   const inputId = useId();
   const errorId = useId();
   const [isDragging, setIsDragging] = useState(false);
@@ -62,6 +64,7 @@ export default function ImageDropzone({ label, file, onFileChange }: Props) {
     <div className="dropzone-field">
       <span className="field-label" id={`${inputId}-label`}>
         {label}
+        {optional && <span className="muted"> (optional)</span>}
       </span>
 
       {file && previewUrl ? (

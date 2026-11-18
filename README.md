@@ -47,7 +47,7 @@ The backend must allow CORS from the UI origin (`http://localhost:5173`). Photos
 
 | Route | Page | Purpose |
 | --- | --- | --- |
-| `/` | Upload | Two photo drop zones, narrative, `POST /api/analyses`, four-step progress view |
+| `/` | Upload | Photo 1 (required) and Photo 2 (optional) drop zones, narrative, `POST /api/analyses`, four-step progress view |
 | `/review/:analysisId` | Review | Loads `GET /api/analyses/{id}` (refresh-safe), risk banner, evidence, findings, approve/reject |
 | `/claims` | Approved claims | `GET /api/claims` grid with thumbnails and an empty state |
 
@@ -72,6 +72,7 @@ These were made without asking, since the brief said not to ask questions. Chang
 2. **Narrative is trimmed before sending.** The 20 to 3000 character rule applies to the trimmed text, so whitespace-only input does not count. The trimmed text is what is sent and displayed in the review page's "as submitted" quote.
 3. **Similarity for duplicates is derived.** The brief gives only `hamming_distance`. The UI assumes 64-bit perceptual hashes and shows similarity as `1 - distance / 64`. If the backend uses a different hash size, change `describeSimilarity` in `src/components/DuplicateDetails.tsx`.
 4. **Duplicate comparison.** When `matched_image_url` is present, the uploaded photo and the matched image are shown side by side. When it is null, the UI says the match was with the other uploaded photo and shows no second image.
+4a. **Photo 2 is optional.** Only Photo 1 is required on the upload page. When Photo 2 is empty, the `image2` form field is left out of `POST /api/analyses`, so the backend must accept a request with `image1` alone.
 5. **Progress steps advance every 6 seconds.** The fourth step stays active until the response arrives. The steps then all tick, and the app opens the review page after a 0.6 second pause.
 6. **Client-side photo checks.** JPEG, PNG or WebP only, 10 MB maximum. The backend remains the authority and its error messages are shown when it rejects a request.
 7. **Reviewer note** is optional, sent as `null` when empty, and capped at 1000 characters in the input. The cap is not in the contract.

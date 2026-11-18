@@ -74,10 +74,11 @@ export function resolveAssetUrl(path: string): string {
   return `${API_BASE_URL}${path.startsWith('/') ? '' : '/'}${path}`;
 }
 
-export function createAnalysis(image1: File, image2: File, narrative: string): Promise<AnalysisResult> {
+/** Submits a claim. The second photo is optional and is omitted from the form when null. */
+export function createAnalysis(image1: File, image2: File | null, narrative: string): Promise<AnalysisResult> {
   const body = new FormData();
   body.append('image1', image1);
-  body.append('image2', image2);
+  if (image2) body.append('image2', image2);
   body.append('narrative', narrative);
   return request<AnalysisResult>('/api/analyses', { method: 'POST', body });
 }
