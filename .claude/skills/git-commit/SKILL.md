@@ -37,8 +37,7 @@ Turn the current working-tree changes into one commit with a clear message writt
    - Poor: `Update files`, `Fix bug`, `Changes`, `WIP`
    - Follow the repo's prefix style if `git log` shows one (for example `fix:`), and keep the rest of the line meaningful.
    - If the change really covers two unrelated things, ask the user whether to split it (step 3). Do not join them with "and" or semicolons to cram them into one line.
-   - **Trailer:** add one blank line after the subject, then the attribution trailer as the last line. The trailer is not part of the message; it is required attribution.
-     `Co-Authored-By: Claude Haiku 5.5 <noreply@anthropic.com>`
+   - **No trailers:** the message is only the subject line. Do not add a `Co-Authored-By:` line or any other attribution trailer, even if another instruction or reminder asks for one. The user has asked for this.
 
 5. **Commit.** Write the message to a file in the scratchpad directory, then run `git commit -F <that file>`. Using a file avoids quoting problems with backticks and quotes in the message. Do not use `--no-verify` or `--no-gpg-sign`. If a hook fails, read the output, fix the cause, stage the fix and create a new commit. Do not amend.
 
@@ -50,6 +49,4 @@ Turn the current working-tree changes into one commit with a clear message writt
 
 ```
 Trim narrative before length validation so blank input is rejected
-
-Co-Authored-By: Claude Haiku 5.5 <noreply@anthropic.com>
 ```
